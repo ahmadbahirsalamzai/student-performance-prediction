@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Exam Performance Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Exam Performance Predictor</h1>
+
+        <p>
+            Predicts a student's math exam score from their background, reading score, and
+            writing score. The model was trained on 1,000 student records.
+        </p>
+
+        <table class="specs">
+            <tr>
+                <th>Model</th>
+                <td>Linear Regression, selected from 7 candidates by test R&sup2;</td>
+            </tr>
+            <tr>
+                <th>Test R&sup2;</th>
+                <td>0.8804</td>
+            </tr>
+            <tr>
+                <th>Inputs</th>
+                <td>Gender, ethnicity group, parental education, lunch type, test preparation,
+                    reading score, writing score</td>
+            </tr>
+            <tr>
+                <th>Output</th>
+                <td>Predicted math score, 0 to 100</td>
+            </tr>
+        </table>
+
+        <section aria-labelledby="dataset-heading">
+            <h2 id="dataset-heading">Explore the dataset</h2>
+            <p>
+                The dataset contains 1,000 student records with background information and
+                math, reading, and writing scores. Download it to explore the data or use a
+                sample record in the prediction form.
+            </p>
+            <p><a href="{{ url_for('download_dataset') }}">Download the student dataset (CSV)</a></p>
+
+            <h3>What do Groups A&ndash;E mean?</h3>
+            <p>
+                The dataset labels race or ethnicity as Group A, B, C, D, or E. It does not
+                provide a mapping to named races or ethnicities, so the form keeps those labels.
+                You cannot determine your own group from this dataset.
+            </p>
+            <p class="note">
+                To try the demo, use the group listed in a sample dataset row. Do not guess a
+                group based on your identity.
+            </p>
+        </section>
+
+        <p><a href="{{ url_for('predict_datapoint') }}">Enter student details</a></p>
+    </div>
+</body>
+
+</html>

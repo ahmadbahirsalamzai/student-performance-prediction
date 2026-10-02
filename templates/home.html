@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Predict Math Score</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Exam Performance Predictor</h1>
+        <p class="note"><a href="{{ url_for('index') }}">Back to overview</a></p>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <fieldset>
+                <legend>Student background</legend>
+
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option selected disabled value="">Select gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+
+                <label for="ethnicity">Race or ethnicity group (dataset category)</label>
+                <select id="ethnicity" name="ethnicity" aria-describedby="ethnicity-help" required>
+                    <option selected disabled value="">Select group</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+                <p id="ethnicity-help" class="note">
+                    Groups A&ndash;E are dataset labels with no mapping to named races or
+                    ethnicities. Use a sample row from the
+                    <a href="{{ url_for('download_dataset') }}">dataset (CSV)</a> to try the demo;
+                    do not guess your own group.
+                </p>
+
+                <label for="parental_level_of_education">Parental level of education</label>
+                <select id="parental_level_of_education" name="parental_level_of_education" required>
+                    <option selected disabled value="">Select education level</option>
+                    <option value="some high school">Some high school</option>
+                    <option value="high school">High school</option>
+                    <option value="some college">Some college</option>
+                    <option value="associate's degree">Associate's degree</option>
+                    <option value="bachelor's degree">Bachelor's degree</option>
+                    <option value="master's degree">Master's degree</option>
+                </select>
+
+                <label for="lunch">Lunch type</label>
+                <select id="lunch" name="lunch" required>
+                    <option selected disabled value="">Select lunch type</option>
+                    <option value="standard">Standard</option>
+                    <option value="free/reduced">Free or reduced</option>
+                </select>
+
+                <label for="test_preparation_course">Test preparation course</label>
+                <select id="test_preparation_course" name="test_preparation_course" required>
+                    <option selected disabled value="">Select status</option>
+                    <option value="none">Not completed</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Other subject scores</legend>
+
+                <div class="row">
+                    <div>
+                        <label for="reading_score">Reading score (0-100)</label>
+                        <input id="reading_score" name="reading_score" type="number" min="0" max="100"
+                            placeholder="e.g. 72" required />
+                    </div>
+                    <div>
+                        <label for="writing_score">Writing score (0-100)</label>
+                        <input id="writing_score" name="writing_score" type="number" min="0" max="100"
+                            placeholder="e.g. 74" required />
+                    </div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Predict math score</button>
+        </form>
+
+        {% if results is not none %}
+        <table class="result">
+            <tr>
+                <th>Predicted math score</th>
+                <td>{{ results }}</td>
+            </tr>
+        </table>
+        {% endif %}
+    </div>
+</body>
+
+</html>

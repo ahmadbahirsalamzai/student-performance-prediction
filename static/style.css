@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #222222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+}
+
+h1 {
+    margin: 0 0 4px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #222222;
+    font-size: 22px;
+}
+
+p {
+    margin: 12px 0;
+}
+
+.note {
+    color: #555555;
+}
+
+form {
+    margin-top: 24px;
+}
+
+fieldset {
+    margin: 0 0 20px;
+    padding: 14px 16px 16px;
+    border: 1px solid #cccccc;
+}
+
+legend {
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+select,
+input[type="number"] {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 6px 8px;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    background: #ffffff;
+    color: #222222;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+select:last-of-type,
+input[type="number"]:last-of-type {
+    margin-bottom: 0;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+}
+
+.row > div {
+    flex: 1;
+}
+
+button {
+    padding: 8px 18px;
+    border: 1px solid #1a4d8f;
+    border-radius: 2px;
+    background: #1a4d8f;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #14406f;
+}
+
+a {
+    color: #1a4d8f;
+}
+
+table.result {
+    margin-top: 24px;
+    border-collapse: collapse;
+}
+
+table.result th,
+table.result td {
+    padding: 8px 14px;
+    border: 1px solid #cccccc;
+    text-align: left;
+}
+
+table.result th {
+    background: #f2f2f2;
+    font-weight: bold;
+}
+
+table.result td {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+table.specs {
+    margin: 16px 0;
+    border-collapse: collapse;
+}
+
+table.specs th,
+table.specs td {
+    padding: 6px 14px 6px 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+table.specs th {
+    font-weight: bold;
+    white-space: nowrap;
+}
